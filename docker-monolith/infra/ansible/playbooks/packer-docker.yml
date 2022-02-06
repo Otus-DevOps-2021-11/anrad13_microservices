@@ -1,0 +1,61 @@
+---
+- name: Install docker
+  hosts: all
+  become: true
+  tasks:
+  - name: Sleep 15
+    command: sleep 15
+
+  - name: Uninstall old versions
+    apt:
+      pkg:
+        - docker
+        - docker-engine
+        - docker.io
+        - containerd
+        - runc
+      state: absent
+
+  - name: Update the apt package index. Install packages to allow apt to use a repository over HTTPS
+    apt:
+      pkg:
+        - ca-certificates
+        - curl
+        - docker.io
+        - gnupg
+        - lsb-release
+      state: present
+      update_cache: true
+
+  - name: Add Docker official GPG key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+
+  - name: Add Docker Repository
+    apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu focal stable
+      state: present
+
+  - name: Install Docker Engine
+    apt:
+      pkg:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+      state: present
+      update_cache: true
+
+  - name: Install pip3
+    apt:
+      pkg:
+        - python3-pip
+      state: present
+      update_cache: true
+
+  - name: pip3 install docker
+    command: 
+      cmd: "pip3 install docker"
+      creates: "result"
+
+  handlers:
