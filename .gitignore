@@ -1,0 +1,15 @@
+!**/variables.json
+packer/variables.json
+variables.json
+
+# Terraform
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfvars
+.terraform/
+
+# Ansible
+*.retry
+#Ansible external repo should not be in my repo
+jdauphant.nginx

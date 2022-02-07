@@ -1,0 +1,7 @@
+REPOSITORY                TAG                 IMAGE ID            CREATED              SIZE
+anrad13/ubuntu-tmp-file   latest              ea1d6e7aeb3b        About a minute ago   63.2MB
+ubuntu                    18.04               dcf4d4bef137        2 days ago           63.2MB
+hello-world               latest              feb5d9fea6a5        4 months ago         13.3kB
+
+$ docker inspect <u_container_id> - returns current state runned container with state and run-time params as network parameters 
+$ docker inspect <u_image_id> - return only info about image without run-time parameters and metrics
