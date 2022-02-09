@@ -21,3 +21,12 @@ anrad13 microservices repository
 - docker-monolith/infra/ansible/inventory.sh - dynamic inventory config by terraform output -json
 - docker-monolith/infra/terraform/stage/enventory.py - python script for terraform output -json to ansible inventory json parsing
 - docker-monolith/infra/ansible/playbook/packer-docker.yml - ansible playbook for docker image disk with packer
+
+# HW-17 Docker-3
+- created Dockerfile files for comment, post and ui applications
+- deployed them successfully with different network alliases as 
+docker run -d --network=reddit --network-alias=post_db1 --network-alias=comment_db1 mongo:latest
+docker run -d --network=reddit --network-alias=post -e POST_DATABASE_HOST=comment_db1  anrad13/post:1.0
+docker run -d --network=reddit --network-alias=comment  -e COMMENT_DATABASE_HOST=post_db1 anrad13/comment:1.0
+docker run -d --network=reddit -p 9292:9292 anrad13/ui:2.0
+- made container from ubuntu image - UI v2
