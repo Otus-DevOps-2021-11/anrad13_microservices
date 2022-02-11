@@ -30,3 +30,8 @@ docker run -d --network=reddit --network-alias=post -e POST_DATABASE_HOST=commen
 docker run -d --network=reddit --network-alias=comment  -e COMMENT_DATABASE_HOST=post_db1 anrad13/comment:1.0
 docker run -d --network=reddit -p 9292:9292 anrad13/ui:2.0
 - made container from ubuntu image - UI v2
+
+# HW-18 Docker-4
+- created docker-compose.yml with parameters USERNAME VERSION PORT COMPOSE_PROJECT_NAME
+- created .env file with paramenters values
+- to change base name of containers could be used env COMPOSE_PROJECT_NAME or p flag (docker-compose -p {base-name})
