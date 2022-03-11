@@ -35,3 +35,7 @@ docker run -d --network=reddit -p 9292:9292 anrad13/ui:2.0
 - created docker-compose.yml with parameters USERNAME VERSION PORT COMPOSE_PROJECT_NAME
 - created .env file with paramenters values
 - to change base name of containers could be used env COMPOSE_PROJECT_NAME or p flag (docker-compose -p {base-name})
+
+# HW-22 Monitoring-1
+- Docker Hub: https://hub.docker.com/u/anrad13
+- no * tasks
