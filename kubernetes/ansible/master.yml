@@ -14,12 +14,7 @@
         mode: 0755
 
     - name: copy admin.conf to user's kube config
-      become: yes
-      copy:
-        src: /etc/kubernetes/admin.conf
-        dest: $HOME/.kube/config
-        remote_src: yes
-        owner: ubuntu
+      shell: sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 
     - name: install Pod network
       become: yes
