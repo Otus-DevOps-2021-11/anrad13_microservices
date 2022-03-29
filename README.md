@@ -39,3 +39,23 @@ docker run -d --network=reddit -p 9292:9292 anrad13/ui:2.0
 # HW-22 Monitoring-1
 - Docker Hub: https://hub.docker.com/u/anrad13
 - no * tasks
+
+# HW-27 Kubernetes-1
+- create deployment files in kubernetes/reddit
+- result:
+ubuntu@master:~$ sudo kubectl get pods
+NAME                                  READY   STATUS    RESTARTS   AGE
+comment-deployment-6759f48d9b-r7n6g   1/1     Running   0          19m
+mongo-deployment-5487844b6b-4lk5h     1/1     Running   0          2m32s
+post-deployment-76f7d9fc8-h9jcn       1/1     Running   0          24m
+ui-deployment-6b75f696f4-kl24k        1/1     Running   0          2m40s
+
+## Tasl with *
+- create terraform + ansible kubernetes deployment to yandex cloud
+- terraform playbook - kubernetes/terraform/stage/main.tf
+- ansible playbooks - kubernetes/ansible/ :
+- kube-dependencies.yml - install dependencies, docker, kube on master and worker nodes
+- docker-issues-fix.yml - fix issue with docker config. See https://jaedsada.me/blogs/kubernetes/k8s-init-fail
+- master.yml - init and setup docker master node
+- worker.yml - connect worker to master
+- copy-deployment.yml - copy deployment files from kubernetes/reddit to master node

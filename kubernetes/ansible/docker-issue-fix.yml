@@ -1,0 +1,16 @@
+- hosts: all
+  become: yes
+  tasks:
+  - name: Add config file for docker daemion see https://jaedsada.me/blogs/kubernetes/k8s-init-fail
+    become: true
+    copy:
+      src: docker-daemon.json
+      dest: /etc/docker/daemon.json
+
+  - name: reload docker
+    become: true
+    systemd:
+      state: restarted
+      daemon_reload: yes
+      name: docker
+    tags: app-tag

@@ -1,0 +1,21 @@
+- hosts: master
+  tasks:
+    - name: Add deployment for mongo
+      copy:
+        src: ../reddit/mongo-deployment.yml
+        dest: $HOME/mongo-deployment.yml
+
+    - name: Add deployment for post
+      copy:
+        src: ../reddit/post-deployment.yml
+        dest: $HOME/post-deployment.yml
+
+    - name: Add deployment for comment
+      copy:
+        src: ../reddit/comment-deployment.yml
+        dest: $HOME/comment-deployment.yml
+
+    - name: Add deployment for ui
+      copy:
+        src: ../reddit/ui-deployment.yml
+        dest: $HOME/ui-deployment.yml
