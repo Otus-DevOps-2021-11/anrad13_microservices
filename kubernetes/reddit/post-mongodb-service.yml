@@ -6,6 +6,7 @@ metadata:
   labels:
     app: reddit
     component: mongo
+    comment-db: "true"
     post-db: "true"
 spec:
   ports:
@@ -16,3 +17,4 @@ spec:
     app: reddit
     component: mongo
     post-db: "true"
+    comment-db: "true"

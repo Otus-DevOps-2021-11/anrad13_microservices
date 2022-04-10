@@ -6,7 +6,11 @@ metadata:
   labels:
     app: reddit
     component: mongo
+    comment-db: "true"
+    post-db: "true"
+
 spec:
+  type: NodePort
   ports:
   - port: 27017
     protocol: TCP
@@ -14,3 +18,6 @@ spec:
   selector:
     app: reddit
     component: mongo
+    comment-db: "true"
+    post-db: "true"
+

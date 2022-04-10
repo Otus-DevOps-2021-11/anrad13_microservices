@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -6,7 +7,7 @@ metadata:
     app: reddit
     component: post
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: reddit
@@ -19,7 +20,7 @@ spec:
         component: post
     spec:
       containers:
-      - image: chromko/post
+      - image: anrad13/post
         name: post
         env:
         - name: POST_DATABASE_HOST
